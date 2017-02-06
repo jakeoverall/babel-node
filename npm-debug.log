@@ -1,6 +1,6 @@
 0 info it worked if it ends with ok
-1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
-1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
 1 verbose cli   'run-script',
 1 verbose cli   'debug' ]
 2 info using npm@4.0.5
@@ -10,25 +10,25 @@
 6 silly lifecycle the-store@1.0.0~predebug: no script for predebug, continuing
 7 info lifecycle the-store@1.0.0~debug: the-store@1.0.0
 8 verbose lifecycle the-store@1.0.0~debug: unsafe-perm in lifecycle true
-9 verbose lifecycle the-store@1.0.0~debug: PATH: C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;c:\Users\Jake\Source\trash\the-store\node_modules\.bin;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\120\DTS\Binn\;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files (x86)\Git\cmd;C:\Program Files (x86)\Git\bin;C:\Program Files (x86)\Microsoft VS Code\bin;C:\Program Files (x86)\Heroku\bin;C:\Program Files (x86)\git\cmd;C:\Program Files (x86)\LINQPad5;C:\Program Files (x86)\Microsoft SQL Server\130\Tools\Binn\ManagementStudio\;C:\Program Files (x86)\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\Client SDK\ODBC\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\DTS\Binn\;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files\Git\cmd;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Program Files (x86)\Brackets\command;C:\Users\Jake\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files (x86)\Microsoft Emulator Manager\1.0\;C:\Program Files\dotnet\;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\nodejs\;C:\Users\Jake\.dnx\runtimes\dnx-clr-win-x86.1.0.0-rc1-update1\bin;C:\Users\Jake\.dnx\bin;C:\Program Files\MongoDB\Server\3.0\bin;C:\Program Files (x86)\Microsoft VS Code\bin;C:\Users\Jake\AppData\Local\Microsoft\WindowsApps;C:\Users\Jake\AppData\Roaming\npm
-10 verbose lifecycle the-store@1.0.0~debug: CWD: c:\Users\Jake\Source\trash\the-store
-11 silly lifecycle the-store@1.0.0~debug: Args: [ '/d /s /c', 'babel-node --presets es2015 --debug index.js' ]
+9 verbose lifecycle the-store@1.0.0~debug: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/Jake/source/codeworks/trash/babel-node/node_modules/.bin:~/npm-global/bin:/usr/local/heroku/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:/usr/local/git/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:~/npm-global/bin:/usr/local/heroku/bin
+10 verbose lifecycle the-store@1.0.0~debug: CWD: /Users/Jake/source/codeworks/trash/babel-node
+11 silly lifecycle the-store@1.0.0~debug: Args: [ '-c', 'babel-node --presets es2015 --debug index.js' ]
 12 silly lifecycle the-store@1.0.0~debug: Returned: code: 1  signal: null
 13 info lifecycle the-store@1.0.0~debug: Failed to exec debug script
 14 verbose stack Error: the-store@1.0.0 debug: `babel-node --presets es2015 --debug index.js`
 14 verbose stack Exit status 1
-14 verbose stack     at EventEmitter.<anonymous> (C:\Program Files\nodejs\node_modules\npm\lib\utils\lifecycle.js:279:16)
+14 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:279:16)
 14 verbose stack     at emitTwo (events.js:106:13)
 14 verbose stack     at EventEmitter.emit (events.js:191:7)
-14 verbose stack     at ChildProcess.<anonymous> (C:\Program Files\nodejs\node_modules\npm\lib\utils\spawn.js:40:14)
+14 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:40:14)
 14 verbose stack     at emitTwo (events.js:106:13)
 14 verbose stack     at ChildProcess.emit (events.js:191:7)
 14 verbose stack     at maybeClose (internal/child_process.js:885:16)
 14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
 15 verbose pkgid the-store@1.0.0
-16 verbose cwd c:\Users\Jake\Source\trash\the-store
-17 error Windows_NT 10.0.14393
-18 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "run-script" "debug"
+16 verbose cwd /Users/Jake/source/codeworks/trash/babel-node
+17 error Darwin 15.6.0
+18 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "run-script" "debug"
 19 error node v7.4.0
 20 error npm  v4.0.5
 21 error code ELIFECYCLE
