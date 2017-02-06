@@ -16,27 +16,27 @@ var schema = new mongoose.Schema({
 });
 
 schema.pre('save', function (next) {
+
+	let errorHandler = (next) => {
+		next(new Error('ERROR: AN ERROR OCCURRED'))
+	}
+
 	let product = this
-	store.findById(this._doc.storeId)
-		.then(store => {
-			console.log('A VALID STORE FOUND', store)
-			console.log('VALIDATING CATEGORY ID', this._doc.categoryId)
-			category.findById(product._doc.categoryId).then(cat => {
-				if (!cat.products.find(p => { return p == this._doc._id })) {
-					cat.products.push(product)
-				}
-				cat.save().then(() => {
-					if (!store.products.find(p => { return p == this._doc._id })) {
-						store.products.push(product)
-					}
-					store.save()
-					next()
-				})
-			}).catch(() => next(new Error('ERROR: AN ERROR OCCURRED, UNABLE TO FIND CATEGORY')))
-		})
-		.catch(() => {
-			next(new Error('ERROR: AN ERROR OCCURRED, UNABLE TO FIND STORE'))
-		})
+	Promise.all([
+		store.findByIdAndUpdate(product._doc.storeId, {
+			$addToSet: {
+				categories: product._doc._id
+			}
+		}).catch(errorHandler),
+		category.findByIdAndUpdate(product._doc.categoryId, {
+			$addToSet: {
+				categories: product._doc._id
+			}
+		}).catch(errorHandler)
+	])
+		.then(next)
+		.catch(errorHandler)
+
 })
 
 module.exports = mongoose.model(models.product, schema);

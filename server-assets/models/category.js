@@ -9,22 +9,19 @@ var schema = new mongoose.Schema({
   description: { type: String },
   // Relations
   storeId: { type: ObjectId, ref: models.store, required: true },
-  products: [{ type: ObjectId, ref: models.product }]
+  products: {
+    type: Object,
+    product: { type: ObjectId, ref: models.product }
+  }
 });
 
 schema.pre('save', function (next) {
-  console.log(this)
-  store.findById(this._doc.storeId)
-    .then(store => {
-      console.log('A VALID STORE FOUND', store)
-      if(!store.categories.find(c => {return c == this._doc._id})){
-        store.categories.push(this)
-        store.save().then(next)
-      }else{
-        consle.log('CATEGORY ALREADY IN STORE')
-        next()
-      }
-    })
+  store.findByIdAndUpdate(this._doc.storeId, {
+    $addToSet: {
+      categories: this._doc._id
+    }
+  })
+    .then(next)
     .catch(() => {
       next(new Error('ERROR: INVALID STOREID'))
     })
