@@ -11,7 +11,7 @@ var schema = new mongoose.Schema({
 schema.virtual('categories', {
   ref: models.store,
   localField: 'name',
-  foreignField: 'storeId'
+  foreignField: 'store'
 })
 
 
