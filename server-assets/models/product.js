@@ -22,11 +22,11 @@ schema.pre('save', function (next) {
 			console.log('A VALID STORE FOUND', store)
 			console.log('VALIDATING CATEGORY ID', this._doc.categoryId)
 			category.findById(product._doc.categoryId).then(cat => {
-				if (!cat.products.find(p => { p == this._doc._id })) {
+				if (!cat.products.find(p => { return p == this._doc._id })) {
 					cat.products.push(product)
 				}
 				cat.save().then(() => {
-					if (!store.products.find(p => { p == this._doc._id })) {
+					if (!store.products.find(p => { return p == this._doc._id })) {
 						store.products.push(product)
 					}
 					store.save()

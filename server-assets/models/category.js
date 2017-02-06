@@ -17,7 +17,8 @@ schema.pre('save', function (next) {
   store.findById(this._doc.storeId)
     .then(store => {
       console.log('A VALID STORE FOUND', store)
-      if(!store.categories.find(c => {c == this._doc._id})){
+      if(!store.categories.find(c => {return c == this._doc._id})){
+        store.categories.push(this)
         store.save().then(next)
       }else{
         consle.log('CATEGORY ALREADY IN STORE')
