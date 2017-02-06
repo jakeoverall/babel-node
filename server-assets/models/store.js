@@ -4,15 +4,11 @@ let ObjectId = mongoose.Schema.ObjectId
 
 var schema = new mongoose.Schema({
   name: { type: String, required: true },
-  description: { type: String }
-},
-  { toJSON: { virtuals: true } });
-
-schema.virtual('categories', {
-  ref: models.store,
-  localField: 'name',
-  foreignField: 'store'
-})
+  description: { type: String },
+  // Relations
+  categories: [{ type: ObjectId, ref: models.category }],
+  products: [{ type: ObjectId, ref: models.product }]
+});
 
 
 module.exports = mongoose.model(models.store, schema);

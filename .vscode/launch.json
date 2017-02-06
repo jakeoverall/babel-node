@@ -17,7 +17,8 @@
 				"debug"
 			],
 			"port": 5858,
-			"cwd": "${workspaceRoot}"
+			"cwd": "${workspaceRoot}",
+			"sourceMaps": true
 		}
 	]
 }

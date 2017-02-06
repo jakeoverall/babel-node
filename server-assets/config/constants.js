@@ -8,7 +8,8 @@ const actions = {
 
 const models = {
   store: 'Store',
-  category: 'Category'
+  category: 'Category',
+  product: 'Product'
 }
 
 

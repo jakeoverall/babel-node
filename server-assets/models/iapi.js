@@ -18,7 +18,7 @@ function API(modelName, schema) {
     console.log(query)
 
     if (id) {
-      schema.findOne({ _id: id })
+      schema.findById(id)
         .populate(query)
         .then(data => {
           return res.send(handleResponse(actions.find, data))
@@ -63,11 +63,13 @@ function API(modelName, schema) {
       return next(handleResponse(action, null, { error: { message: 'Invalid request no id provided' } }))
     }
 
-    schema.update(id, req.body)
+    schema.findOneAndUpdate({ _id: id }, req.body)
       .then(data => {
-        return res.send(handleResponse(action, data))
+        data.save().then(()=>{
+          return res.send(handleResponse(action, data))
+        })
       })
-      .error(error => {
+      .catch(error => {
         return next(handleResponse(action, null, error))
       })
   }
@@ -80,7 +82,7 @@ function API(modelName, schema) {
       return next(handleResponse(action, null, { error: { message: 'Invalid request no id provided' } }))
     }
 
-    schema.destroy(id).then(function (data) {
+    schema.findOneAndRemove({ _id: id }).then(function (data) {
       return res.send(handleResponse(action, data))
     })
       .catch(error => {
